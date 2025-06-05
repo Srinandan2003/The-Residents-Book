@@ -43,8 +43,6 @@ Responsive UI
 Clean and responsive layout using custom CSS.
 
 🔌 API Documentation
-🔹 Base URL
-https://the-residents-book.onrender.com/residents
 
 1. Add New Resident
 Method: POST
