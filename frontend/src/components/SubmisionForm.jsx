@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from 'axios';
 import '../App.css'
+import ToggleContext from "../context/ToggleContext.jsx";
 
-const SubmissionForm = () => {
+import { toast } from "react-toastify";
+const SubmissionForm = ({OnSuccess}) => {
   const [formData, setFormData] = useState({
     FirstName: '',
     LastName: '',
@@ -13,7 +15,7 @@ const SubmissionForm = () => {
     Twitter: ''
   });
   const [loading,setLoading] = useState(false);
-
+  const {SetToggle}= useContext(ToggleContext);
   const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     const data = new FormData();
@@ -26,12 +28,12 @@ const SubmissionForm = () => {
         data
       );
       setFormData({ ...formData, ProfilePhoto: res.data.secure_url });
+    
     } catch (err) {
+     
       console.error("Cloudinary Upload Error:", err);
-            const notify = () => toast.error(`Error while Uploading: ${err.message}`);
-            notify()
-
-
+        toast.error(`Error while Uploading: ${err.message}`);
+        
     }
   };
 
@@ -51,17 +53,25 @@ const SubmissionForm = () => {
       );
       setLoading(false)
       toast.success("Resident added successfully!");
+       SetToggle(prev =>!prev)
+       OnSuccess()
     } catch (error) {
         setLoading(false)
       console.error(error);
-       toast.error(`Error while submitting data: ${error.response?.data?.message || error.message}`);
+      if(error.response?.data?.message == "Incomplete data"){
+ toast.error(`Error while submitting data: ${error.response?.data?.message || error.message}`);
+      }else{
+         toast.error(`Error while submitting data: ${error.response?.data?.message || error.message}`);
+         SetToggle(prev =>!prev)
+      }
+       
+      
       
     }
   };
 
   return (
     <div>
-       
       <form id="SubmissionForm" onSubmit={handleSubmit}>
         <label htmlFor="FirstName">FirstName :</label>
         <input type="text" name="FirstName" placeholder="FirstName" onChange={handleChange} />

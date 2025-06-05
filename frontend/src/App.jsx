@@ -1,19 +1,21 @@
 import axios from "axios";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./App.css";
 
 import SubmissionForm from "./components/SubmisionForm.jsx";
 import ResidentCard from "./components/ResidentCard.jsx";
 
 import { ToastContainer} from "react-toastify";
+import { IoCloseCircle } from "react-icons/io5";
 
+import ToggleContext from "./context/ToggleContext.jsx";
 
 
 
 function App() {
   const [Residents, setResidents] = useState([]);
-  const [toggle,SetToggle] = useState(false);
+  const {toggle, SetToggle} = useContext(ToggleContext)
 
   const fetchResidents = async () => {
     try {
@@ -40,14 +42,14 @@ function App() {
    <h1 className="title">The Residents Book</h1>
   <div id="nav">
    
-  <button id="toggle" onClick={()=>SetToggle(prev=>!prev)}>Add resident</button>
+  <button id="toggle" onClick={()=>SetToggle(prev=>!prev)}>+ Add Resident</button>
   </div>
 
 </nav>      
   {toggle && (
   <div className="popUp-container" onClick={() => SetToggle(false)}>
     <div className="modal" onClick={(e) => e.stopPropagation()}>
-      <SubmissionForm />
+      <SubmissionForm OnSuccess={fetchResidents}/>
     </div>
   </div>
 )}
