@@ -1,0 +1,234 @@
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(246, 246, 246);
+    border: 2px solid black;
+}
+
+.title{
+    font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 50px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom:1px solid black ;
+
+}
+#nav {
+display: flex;
+justify-content: center;
+width: 50%; 
+padding: 1rem;
+position: sticky;
+  
+
+}
+
+
+.residents-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  
+}
+
+
+.resident-card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 280px;
+  padding: 1.2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+
+  transition: 0.6s;
+}
+
+.resident-card:hover {
+    transition: 0.4s;
+       box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}
+
+.resident-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+  border: 2px solid #eee;
+}
+
+.resident-card h3 {
+  margin: 0.4rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.resident-card p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.resident-card a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.resident-card a:hover {
+  text-decoration: underline;
+}
+
+
+@media (max-width: 650px) {
+  .resident-card {
+    width: 90%;
+  }
+
+  .resident-card h3 {
+    font-size: 1rem;
+  }
+
+  .resident-card p {
+    font-size: 0.9rem;
+  }
+  .title{
+    font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 19px;
+}
+
+}
+
+@media (min-width: 650px){
+      .title{
+    font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 30px;
+}
+
+#toggle{
+    width: 150px;
+    height: 40px;
+}
+#toggle:hover{
+    width: 151px;
+    height: 41px;
+}
+}
+
+#SubmissionForm {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+  padding: 20px;
+  margin: 40px auto;
+  border: 1px solid #5c5c5c;
+  border-radius: 10px;
+  max-width: 320px;  
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+}
+
+input {
+  padding: 6px 8px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+label {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+#formButton {
+  padding: 8px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-radius: 6px;
+ background-color: black;
+  transition: background-color 0.3s ease;
+color: white;
+width: 100%;
+ grid-column: 1 / -1;
+  border: 0.5px solid black;
+  margin: 0;
+}
+
+#formButton:hover{
+     border: 0.5px solid black;
+     background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+#toggle:hover {
+   border: 0.5px solid black;
+     background-color: white;
+  color: black;
+  cursor: pointer;
+  width: 210px;
+  height: 60px;
+  transition: 0.8s;
+
+}
+
+#toggle{
+  
+  padding: 8px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border-radius: 6px;
+ background-color: black;
+  transition: background-color 0.3s ease;
+color: white;
+width: 200px;
+height: 60px;
+ grid-column: 1 / -1;
+  border: 0.5px solid black;
+    transition: 0.8s;
+}
+
+.popUp-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; 
+}
+
+
+.modal {
+  padding: 0;
+  border-radius: 10px;
+  min-width: 300px;
+  max-width: 500px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
+}
+
+
+
+
