@@ -74,19 +74,19 @@ const SubmissionForm = ({OnSuccess}) => {
     <div>
       <form id="SubmissionForm" onSubmit={handleSubmit}>
         <label htmlFor="FirstName">FirstName :</label>
-        <input type="text" name="FirstName" placeholder="FirstName" onChange={handleChange} />
+        <input type="text" name="FirstName" placeholder="FirstName" onChange={handleChange} required />
 
         <label htmlFor="LastName">LastName :</label>
-        <input type="text" name="LastName" placeholder="LastName" onChange={handleChange} />
+        <input type="text" name="LastName" placeholder="LastName" onChange={handleChange} required />
 
         <label htmlFor="Email">Email :</label>
-        <input type="email" name="Email" placeholder="Email" onChange={handleChange} />
+        <input type="email" name="Email" placeholder="Email" onChange={handleChange} required />
 
         <label htmlFor="Role">Role :</label>
-        <input type="text" name="Role" placeholder="Role" onChange={handleChange} />
+        <input type="text" name="Role" placeholder="Role" onChange={handleChange} required />
 
         <label htmlFor="ProfilePhoto">ProfilePhoto:</label>
-        <input type="file" accept="image/*" onChange={handleImageUpload} />
+        <input type="file" accept="image/*" onChange={handleImageUpload} required />
 
         <label htmlFor="LinkedIn">LinkedIn :</label>
         <input type="text" name="LinkedIn" placeholder="LinkedIn" onChange={handleChange} />
